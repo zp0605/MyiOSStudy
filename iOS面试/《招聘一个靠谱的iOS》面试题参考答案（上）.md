@@ -76,12 +76,15 @@ typedef NS_ENUM(NSInteger, CYLSex) {
 //最好不要写成CYLUserModel
 @interface CYLUser : NSObject<NSCopying>
 //一般空一行即可
-@property (nonatomic, readonly, copy) NSString *name;
+@property (nonatomic, readonly, copy) ssNSString *name;
 @property (nonatomic, readonly, assign) NSUInteger age;
 @property (nonatomic, readonly, assign) CYLSex sex;
 //注意property后面最好有一个空格，括号里面没有空格
-//strong一般用来修饰对象，字符串一般用copy()
+//strong一般用来修饰对象，字符串一般用copy(不确定字符串在什么时候会被释放，一旦被释放，我们的指针将会没有意义。所以我们先将原字符串复制一份到堆区，然后指向复制到堆区的对象（副本）)
+//string修饰的是强制指针（只有一个对象，只要有一个指针还指向它，就不会被释放），week修饰的是弱指针（如果多个弱指针指向一个对象，只要这个对象被释放，这些弱指针都会指向空）
+//NSInteger 可以考虑到版本的兼容，不同的操作系统实际长度不一样
 
+//构造方法一般initWithXXX开头，后面的属性再写with;返回instancetype
 - (instancetype)initWithName:(NSString *)name age:(NSUInteger)age sex:(CYLSex)sex;
 + (instancetype)userWithName:(NSString *)name age:(NSUInteger)age sex:(CYLSex)sex;
 
