@@ -406,6 +406,3 @@ http://ibruce.info/2013/11/26/markdown/
 * [自定义的类实现copy操作](代码资料/DAY18/note/备课笔记/567.md)
 * [单例设计模式](代码资料/DAY18/note/备课笔记/631.md)
 
-# UIKit框架学习
----
-## UIKit第二天 UILabel、UIImageView
