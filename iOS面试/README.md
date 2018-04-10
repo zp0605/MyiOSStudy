@@ -184,8 +184,8 @@
 	* 采用__week修饰block内部的类指针，可以避免block循环引用发生的问题；
    ![](img/06.png)
    
-*  _weak类型的属性是否需要在dealloc中设置为nil?
-	*    
+*  _weak类型的属性是否需要在dealloc中置为nil?
+	* 无论是什么样的week类型的属性，在ARC机制之下，我们不需要在    dealloc中对其置Nil,因为编译器会自动帮助我们处理week类型的属性。
 * isKindOfClass与isMemberOfClass的区别？
 	* 都是NSObject的比较Class的方法.（相同点）
 	* isKindOfClass:确定一个对象是否是一个类的成员,或者是派生自该类的成员.
