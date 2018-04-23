@@ -124,3 +124,23 @@ class LXFChatFindEmotion: NSObject {
 }
 ````
 
+#### 函数参数指针的使用 inout
+
+````
+func swapNum(inout m : Int, inout n : Int) {
+    let temp = m
+    m = n
+    n = temp
+}
+
+swapNum(&m, n: &n)
+````
+
+####属性分类
+
+````
+  存储属性
+  计算属性
+  类属性
+````
+
