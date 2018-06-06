@@ -1,3 +1,9 @@
+
+
+[iOS 开发者在面试过程中，常见的一些面试题，建议尽量弄懂了原理，并且多实践](https://github.com/liberalisman/iOS-InterviewQuestion-collection)
+
+[常见iOS面试中考察的知识点整理](https://github.com/Alllfred/iOSReview)
+
 ####属性关键字
 * strong、week的区别
 	* strong、week在arc下针对对象的所有权，不能针对非对象；
