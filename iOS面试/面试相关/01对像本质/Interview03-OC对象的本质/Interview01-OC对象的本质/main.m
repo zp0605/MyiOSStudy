@@ -66,8 +66,8 @@ int main(int argc, const char * argv[]) {
         Person *person2 = [[Person alloc] init];
         person2->_age = 30;
         
-//        NSLog(@"person - %zd", class_getInstanceSize([Person class]));
-//        NSLog(@"person - %zd", malloc_size((__bridge const void *)person));
+        NSLog(@"person - %zd", class_getInstanceSize([Person class]));
+        NSLog(@"person - %zd", malloc_size((__bridge const void *)person));
     }
     return 0;
 }

@@ -16,6 +16,7 @@ struct NSObject_IMPL {
 };
 // 指针
 // typedef struct objc_class *Class;
+//
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -26,7 +27,7 @@ int main(int argc, const char * argv[]) {
         NSLog(@"%zd", class_getInstanceSize([NSObject class]));
         
         // 获得obj指针所指向内存的大小 >> 16
-        NSLog(@"%zd", malloc_size((__bridge const void *)obj));
+        NSLog(@"%zd", malloc_size((__bridge const void *)obj));//一个NSObject对象占用多少内存？
         
         // 什么平台的代码
         // 不同平台支持的代码肯定是不一样

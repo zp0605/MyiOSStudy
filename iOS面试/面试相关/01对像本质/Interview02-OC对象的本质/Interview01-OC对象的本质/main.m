@@ -33,7 +33,12 @@ struct Student_IMPL {
 @implementation Student
 
 @end
-
+/*
+对象的isa指针指向哪里？
+instance对象的isa指向class对象
+class对象的isa指向meta-class对象
+meta-class对象的isa指向基类的meta-class对象
+*/
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         Student *stu = [[Student alloc] init];
