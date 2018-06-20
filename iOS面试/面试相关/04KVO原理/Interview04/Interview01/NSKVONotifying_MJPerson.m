@@ -26,8 +26,9 @@
     // 收尾工作
 }
 
-- (BOOL)_isKVOA
+- (BOOL)_isKVOA// 私有方法_isKVOA 是用来标示该类是一个KVO 机制声称的类
 {
+   // return NO;
     return YES;
 }
 

@@ -10,6 +10,16 @@
 #import "MJPerson.h"
 #import "MJObserver.h"
 
+/*
+ 通过KVC修改属性会触发KVO么？
+会触发KVO
+
+ 
+ KVC的赋值和取值过程是怎样的？原理是什么？
+
+ 
+ */
+ 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         MJObserver *observer = [[MJObserver alloc] init];
@@ -27,20 +37,20 @@ int main(int argc, const char * argv[]) {
         [person removeObserver:observer forKeyPath:@"age"];
         
         
-//        person.age = 10;
+        person.age = 10;
         
-//        NSLog(@"%@", [person valueForKey:@"age"]);
-//        NSLog(@"%@", [person valueForKeyPath:@"cat.weight"]);
+        NSLog(@"%@", [person valueForKey:@"age"]);
+        NSLog(@"%@", [person valueForKeyPath:@"cat.weight"]);
         
         
-//        NSLog(@"%d", person.age);
+        NSLog(@"%d", person.age);
         
-//        [person setValue:[NSNumber numberWithInt:10] forKey:@"age"];
-//        [person setValue:@10 forKey:@"age"];
-//        person.cat = [[MJCat alloc] init];
-//        [person setValue:@10 forKeyPath:@"cat.weight"];
+        [person setValue:[NSNumber numberWithInt:10] forKey:@"age"];
+        [person setValue:@10 forKey:@"age"];
+        // person.cat = [[MJCat alloc] init];
+        [person setValue:@10 forKeyPath:@"cat.weight"];
         
-//        NSLog(@"%d", person.age);
+        NSLog(@"%d", person.age);
         
     
     }

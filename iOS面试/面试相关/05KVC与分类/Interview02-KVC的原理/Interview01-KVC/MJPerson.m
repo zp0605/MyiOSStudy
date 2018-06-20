@@ -39,7 +39,7 @@
 //{
 //    NSLog(@"_setAge: - %d", age);
 //}
-
+//
 //- (void)willChangeValueForKey:(NSString *)key
 //{
 //    [super willChangeValueForKey:key];
@@ -52,8 +52,8 @@
 //    [super didChangeValueForKey:key];
 //    NSLog(@"didChangeValueForKey - end - %@", key);
 //}
-
-// 默认的返回值就是YES
+//
+//// 默认的返回值就是YES
 //+ (BOOL)accessInstanceVariablesDirectly
 //{
 //    return YES;

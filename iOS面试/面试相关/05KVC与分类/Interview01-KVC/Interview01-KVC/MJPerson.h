@@ -15,5 +15,5 @@
 @interface MJPerson : NSObject
 @property (assign, nonatomic) int age;
 
-@property (assign, nonatomic) MJCat *cat;
+@property (strong, nonatomic) MJCat *cat;
 @end

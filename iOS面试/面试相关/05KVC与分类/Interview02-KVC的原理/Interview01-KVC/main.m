@@ -9,6 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "MJPerson.h"
 #import "MJObserver.h"
+/*
+ 通过KVC修改属性会触发KVO么？
+ 会触发KVO
+ 
+ 
+ KVC的赋值和取值过程是怎样的？原理是什么？
+ 
+ 
+ */
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
