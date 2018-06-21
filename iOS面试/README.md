@@ -199,3 +199,82 @@
 	* 都是NSObject的比较Class的方法.（相同点）
 	* isKindOfClass:确定一个对象是否是一个类的成员,或者是派生自该类的成员.
 	* isMemberOfClass:确定一个对象是否是当前类的成员.
+
+* Runnloop相关
+
+````		
+讲讲 RunLoop，项目中有用到吗？
+    控制线程生命周期（线程保活）
+    解决NSTimer在滑动时停止工作的问题
+    监控应用卡顿 https://www.2cto.com/kf/201707/653865.html
+    性能优化
+
+runloop内部实现逻辑？
+
+runloop和线程的关系？ https://www.colabug.com/2855239.html
+     1,每条线程都有唯一的一个与之对应的RunLoop对象
+     2,RunLoop保存在一个全局的Dictionary里，线程作为key，RunLoop作为value
+     3,线程刚创建时并没有RunLoop对象，RunLoop会在第一次获取它时创建
+     4,RunLoop会在线程结束时销毁
+     5,主线程的RunLoop已经自动获取（创建），子线程默认没有开启RunLoop
+
+timer 与 runloop 的关系？https://www.aliyun.com/jiaocheng/359241.html
+     iOS中默认开启的就是main函数里边的那个主线程runloop,iOS所有程序得以正产运行就是靠这个,
+     所以当你开启nstimer的时候默认是可以运行的,因为默认会把nstimer添加到主线程
+ 
+ 
+程序中添加每3秒响应一次的NSTimer，当拖动tableview时timer可能无法响应要怎么解决？//https://blog.csdn.net/qq_33777090/article/details/78631304
+    在tableview滑动时timer就是显示暂停，原因是timer的这个简便构造方法把timer加入了NSRunLoopDefaultMode上，
+    而tableview在滑动时只会处理UITrackingRunLoopMode，RunLoop并没有处理timer事件。
+    解决的办法是将timer绑定到NSRunLoopCommonModes
+ 
+ 
+runloop 是怎么响应用户操作的， 具体流程是什么样的？
+
+说说runLoop的几种状态
+ 
+runloop的mode作用是什么？
+     model 主要是用来指定事件在运行循环中的优先级的，用来控制一些特殊操作只能在指定模式下运行,
+     一般可以通过指定操作的运行mode 来控制执行时机
+     目前已知的Mode有5种
+     kCFRunLoopDefaultMode：App的默认Mode，通常主线程是在这个Mode下运行
+     UITrackingRunLoopMode：界面跟踪 Mode，用于 ScrollView 追踪触摸滑动，保证界面滑动时不受其他 Mode 影响
+     UIInitializationRunLoopMode：在刚启动 App 时进入的第一个 Mode，启动完成后就不再使用
+     GSEventReceiveRunLoopMode：接受系统事件的内部 Mode，通常用不到
+     kCFRunLoopCommonModes：这是一个占位用的Mode，不是一种真正的
+ 
+     苹果公开提供的 Mode 有两个：
+     NSDefaultRunLoopMode（kCFRunLoopDefaultMode）
+     NSRunLoopCommonModes（kCFRunLoopCommonModes）
+     
+````
+
+* Runtime
+
+     
+````
+讲一下OC的消息机制
+   OC中的方法调用其实都是转成了objc_msgSend函数的调用，给receiver（方法调用者）发送了一条消息（selector方法名）
+   objc_msgSend底层有3大阶段:
+   消息发送（当前类、父类中查找）、动态方法解析、消息转发
+ 
+ 
+消息转发机制流程：https://blog.csdn.net/coyote1994/article/details/52454600
+
+什么是Runtime？平时项目中有用过么？
+   OC是一门动态性比较强的编程语言，允许很多操作推迟到程序运行时再进行
+   OC的动态性就是由Runtime来支撑和实现的，Runtime是一套C语言的API，封装了很多动态性相关的函数
+   平时编写的OC代码，底层都是转换成了Runtime API进行调用
+   具体应用:
+     利用关联对象（AssociatedObject）给分类添加属性
+     遍历类的所有成员变量（修改textfield的占位文字颜色、字典转模型、自动归档解档）
+     交换方法实现（交换系统的方法）
+     利用消息转发机制解决方法找不到的异常问题
+ 
+ 在一个函数找不到时，Objective-C提供了三种方式去补救：
+     1、调用resolveInstanceMethod给个机会让类添加这个实现这个函数
+     2、调用forwardingTargetForSelector让别的对象去执行这个函数
+     3、调用methodSignatureForSelector（函数符号制造器）和forwardInvocation（函数执行器）
+       灵活的将目标函数以其他形式执行。
+     
+````
