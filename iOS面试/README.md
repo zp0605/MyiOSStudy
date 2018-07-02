@@ -278,3 +278,24 @@ runloop的mode作用是什么？
        灵活的将目标函数以其他形式执行。
      
 ````
+
+* [ios有哪些传值方式？](https://www.jianshu.com/p/3462e41d88d9)
+
+````
+属性传值、单例传值、代理传值、block传值、通知传值
+````
+
+* [ios如何删除栈中的某一个viewController?](https://blog.csdn.net/it_male/article/details/49931989)
+
+* [多线程之iOS线程间通信？](https://www.jianshu.com/p/e0c0d43f9ab2)
+
+````
+- (void)performSelectorOnMainThread:(SEL)aSelector withObject:(id)arg waitUntilDone:(BOOL)wait;
+- (void)performSelector:(SEL)aSelector onThread:(NSThread *)thr withObject:(id)arg waitUntilDone:(BOOL)wait;
+````
+
+* [gcd与nsoperationQueue的区别与联系？](https://www.jianshu.com/p/d09e2638eb27)
+
+* [Application 的生命周期](https://www.jianshu.com/p/9f2c7e80b84b)
+* [iOS常用的存储方式介绍](https://www.cnblogs.com/FBiOSBlog/p/5819418.html)   [IOS 对象的归档与解档](https://www.jianshu.com/p/3e08fa21316d)
+* [ViewController的生命周期](https://blog.csdn.net/qijianli/article/details/7826979/)
