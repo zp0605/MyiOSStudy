@@ -299,3 +299,16 @@ runloop的mode作用是什么？
 * [Application 的生命周期](https://www.jianshu.com/p/9f2c7e80b84b)
 * [iOS常用的存储方式介绍](https://www.cnblogs.com/FBiOSBlog/p/5819418.html)   [IOS 对象的归档与解档](https://www.jianshu.com/p/3e08fa21316d)
 * [ViewController的生命周期](https://blog.csdn.net/qijianli/article/details/7826979/)
+* [类扩展与分类的区别](https://www.jianshu.com/p/1ce81290c7a9)
+
+````
+extension：
+	在编译器决议，是类的一部分，在编译器和头文件的@interface和实现文件里的@implement一起形成了一个完整的类。
+	伴随着类的产生而产生，也随着类的消失而消失。
+	extension一般用来隐藏类的私有消息，你必须有一个类的源码才能添加一个类的extension，所以对于系统一些类，如nsstring，就无法添加类扩展
+category：
+	是运行期决议的
+	类扩展可以添加实例变量，分类不能添加实例变量
+	原因：因为在运行期，对象的内存布局已经确定，如果添加实例变量会破坏类的内部布局，这对编译性语言是灾难性的。
+
+````
